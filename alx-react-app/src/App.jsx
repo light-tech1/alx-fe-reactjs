@@ -8,13 +8,17 @@ import MainContent from './MainContent';
 import Footer from './Footer';
 
 function App() {
+  const [count, setCount] = useState(0)
+
   return (
     <div>
-      <WelcomeMessage />
       <Header />
       <MainContent />
       <Footer />
+      <WelcomeMessage />
     </div>
+
+   
   );
 }
 
