@@ -14,7 +14,7 @@ function FavoriteButton({ recipeId }) {
 
   return (
     <button onClick={handleClick}>
-      {isFavorite ? "💖 Remove from Favorites" : "🤍 Add to Favorites"}
+      {isFavorite ? "Remove from Favorites" : "Add to Favorites"}
     </button>
   );
 }
