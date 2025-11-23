@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { fetchUsers } from "../services/githubService";
+import { fetchUsersData } from "../services/githubService";
 
 export default function Search() {
   const [username, setUsername] = useState("");
@@ -20,7 +20,7 @@ export default function Search() {
     setError("");
 
     try {
-      const users = await fetchUsers({ username, location, minRepos });
+      const users = await fetchUsersData({ username, location, minRepos });
       if (users.length === 0) setError("No users found");
       setResults(users);
     } catch (err) {

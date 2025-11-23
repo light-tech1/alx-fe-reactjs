@@ -1,10 +1,9 @@
 import axios from "axios";
 
 // Accepts optional location and minRepos
-export async function fetchUsers({ username, location, minRepos }) {
+export async function fetchUserData({ username, location, minRepos }) {
   if (!username) return [];
 
-  // Construct query string
   let query = `${username} in:login`;
   if (location) query += ` location:${location}`;
   if (minRepos) query += ` repos:>=${minRepos}`;
@@ -15,7 +14,6 @@ export async function fetchUsers({ username, location, minRepos }) {
 
   const response = await axios.get(url);
 
-  // Fetch extra user info for each user
   const users = await Promise.all(
     response.data.items.map(async (user) => {
       const userDetails = await axios.get(user.url);
