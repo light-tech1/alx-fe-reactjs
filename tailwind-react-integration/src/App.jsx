@@ -1,7 +1,18 @@
+import UserProfile from "./components/UserProfile";
+import "./index.css";
+
 export default function App() {
   return (
-    <h1 className="text-4xl font-bold text-center text-blue-600 mt-20">
-      Tailwind CSS v4 is working! 🎉
-    </h1>
+    <div className="min-h-screen bg-white p-6">
+      {/* ---- Task 0: Tailwind Confirmation Header ---- */}
+      <h1 className="text-4xl font-bold text-center text-blue-600 mt-20">
+        Tailwind CSS v4 is working! 🎉
+      </h1>
+
+      {/* ---- Task 1: Styled UserProfile Component ---- */}
+      <div className="mt-16">
+        <UserProfile />
+      </div>
+    </div>
   );
 }
