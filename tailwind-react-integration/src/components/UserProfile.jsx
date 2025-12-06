@@ -4,11 +4,13 @@ const UserProfile = () => {
   return (
     <div
       className="
-        bg-white shadow-lg rounded-2xl 
+        bg-white rounded-2xl shadow-lg 
         mx-auto 
         p-4 sm:p-4 md:p-8 
-        max-w-xs sm:max-w-xs md:max-w-sm
+        max-w-xs sm:max-w-xs md:max-w-sm 
         text-center
+        transition-shadow duration-300 ease-in-out 
+        hover:shadow-xl
       "
     >
       {/* Profile Image */}
@@ -20,6 +22,8 @@ const UserProfile = () => {
           sm:w-24 sm:h-24 
           md:w-36 md:h-36
           object-cover
+          transition-transform duration-300 ease-in-out
+          hover:scale-110
         "
       />
 
@@ -29,6 +33,8 @@ const UserProfile = () => {
           font-bold 
           text-lg sm:text-lg md:text-xl
           text-gray-800
+          transition-colors duration-300 ease-in-out
+          hover:text-blue-500
         "
       >
         John Doe
@@ -37,12 +43,12 @@ const UserProfile = () => {
       {/* Bio */}
       <p
         className="
-          text-gray-600 
+          text-gray-600
           text-sm sm:text-sm md:text-base
           mt-2
         "
       >
-       Developer at Example Co. Loves to write code and explore new technologies.      
+        Developer at Example Co. Loves to write code and explore new technologies.      
       </p>
     </div>
   );
