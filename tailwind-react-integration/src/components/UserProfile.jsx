@@ -17,7 +17,8 @@ const UserProfile = () => {
         alt="Profile"
         className="
           rounded-full mx-auto mb-4 
-          w-24 h-24 md:w-36 md:h-36
+          sm:w-24 sm:h-24 
+          md:w-36 md:h-36
           object-cover
         "
       />
@@ -33,7 +34,7 @@ const UserProfile = () => {
         John Doe
       </h2>
 
-      {/* Paragraph / Bio */}
+      {/* Bio */}
       <p
         className="
           text-gray-600 
@@ -41,7 +42,8 @@ const UserProfile = () => {
           mt-2
         "
       >
-       Developer at Example Co. Loves to write code and explore new technologies.      </p>
+       Developer at Example Co. Loves to write code and explore new technologies.      
+      </p>
     </div>
   );
 };
