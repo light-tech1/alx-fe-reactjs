@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const AddRecipeForm = ({ onAddRecipe }) => {
   const [title, setTitle] = useState('');
   const [ingredients, setIngredients] = useState('');
-  const [instructions, setInstructions] = useState('');
+  const [steps, setSteps] = useState('');
   const [errors, setErrors] = useState({});
 
   const handleSubmit = (e) => {
@@ -13,21 +13,20 @@ const AddRecipeForm = ({ onAddRecipe }) => {
     const newErrors = {};
     if (!title.trim()) newErrors.title = 'Title is required';
     if (!ingredients.trim()) newErrors.ingredients = 'Ingredients are required';
-    if (!instructions.trim()) newErrors.instructions = 'Instructions are required';
+    if (!steps.trim()) newErrors.steps = 'Steps are required';
     if (ingredients.trim().split(',').length < 2)
       newErrors.ingredients = 'Please enter at least two ingredients, separated by commas';
 
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-      // Create new recipe object
       const newRecipe = {
         id: Date.now(),
         title: title.trim(),
-        summary: instructions.trim().slice(0, 100) + '...',
+        summary: steps.trim().slice(0, 100) + '...',
         image: 'https://via.placeholder.com/300x200',
         ingredients: ingredients.split(',').map((i) => i.trim()),
-        instructions: instructions.split('\n').map((i) => i.trim()),
+        steps: steps.split('\n').map((i) => i.trim()),
       };
 
       onAddRecipe(newRecipe);
@@ -35,7 +34,7 @@ const AddRecipeForm = ({ onAddRecipe }) => {
       // Clear form
       setTitle('');
       setIngredients('');
-      setInstructions('');
+      setSteps('');
       setErrors({});
     }
   };
@@ -69,16 +68,14 @@ const AddRecipeForm = ({ onAddRecipe }) => {
         </div>
 
         <div>
-          <label className="block font-semibold mb-1">Instructions (one step per line)</label>
+          <label className="block font-semibold mb-1">Steps (one per line)</label>
           <textarea
-            value={instructions}
-            onChange={(e) => setInstructions(e.target.value)}
+            value={steps}
+            onChange={(e) => setSteps(e.target.value)}
             className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
             rows={5}
           />
-          {errors.instructions && (
-            <p className="text-red-500 text-sm mt-1">{errors.instructions}</p>
-          )}
+          {errors.steps && <p className="text-red-500 text-sm mt-1">{errors.steps}</p>}
         </div>
 
         <button
