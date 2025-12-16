@@ -1,13 +1,17 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import RegistrationForm from "./components/RegistrationForm";
 import FormikForm from "./components/formikForm";
+import PostsComponent from "./components/PostsComponent";
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <div>
+    <QueryClientProvider client={queryClient}>
       <RegistrationForm />
-      <hr />
       <FormikForm />
-    </div>
+      <PostsComponent />
+    </QueryClientProvider>
   );
 }
 
